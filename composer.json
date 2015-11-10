@@ -1,0 +1,25 @@
+{
+    "name": "escapework/laramedias",
+    "description": "A Laravel package that integrates Glide for easily manage medias on your project.",
+
+    "require": {
+        "escapework/laravel-steroids": "0.2.*",
+        "league/glide": "~0.3",
+        "escapework/laravel-uploader": "0.1.*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "EscapeWork\\LaraMedias\\": "src/"
+        }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.*-dev"
+        }
+    },
+
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
