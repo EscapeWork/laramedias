@@ -1,6 +1,7 @@
 {
     "name": "escapework/laramedias",
     "description": "A Laravel package that integrates Glide for easily manage medias on your project.",
+    "license": "MIT",
 
     "require": {
         "escapework/laravel-steroids": "0.2.*",
