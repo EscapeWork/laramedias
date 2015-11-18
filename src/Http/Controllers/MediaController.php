@@ -1,6 +1,6 @@
 <?php
 
-namespace EscapeWork\LaraMedias\Controllers;
+namespace EscapeWork\LaraMedias\Http\Controllers;
 
 use League\Glide\Server as GlideServer;
 use Illuminate\Routing\Controller;

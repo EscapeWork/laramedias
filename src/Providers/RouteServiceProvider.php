@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        $router->group(['namespace' => null], function($router)
+        $router->group(['namespace' => 'EscapeWork\LaraMedias\Http\Controllers'], function($router)
         {
             require __DIR__ . '/../Http/routes.php';
         });
