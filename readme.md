@@ -45,6 +45,7 @@ class Product extends Model
 
     use Medias;
 }
+```
 
 Now, you can do this:
 
