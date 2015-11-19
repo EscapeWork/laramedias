@@ -35,7 +35,6 @@ This package allows you to easily use medias with your laravel models. There are
 
 Let's say you have a `Product` model that need to have multiple medias. You have to do this:
 
-* Open `config/medias.php` config file and edit the `medias` key putting your model information;
 * Use the following trait in your model;
 
 ```php
@@ -57,8 +56,11 @@ $product->createMultipleMedias($request->file('medias'))`;
 
 ##### Interate through your medias
 
+The `$product->medias` will be a default Laravel collection of `EscapeWork\LaraMedias\Models\Media` models which you can use any of the collection methods available.
+
 ```blade
 @foreach ($product->medias as $media)
+    {{-- all media models have an presenter class so you can easily show the image in different forms --}}
     <img src="{{ $media->present->picture(600, 300, 'crop') }}">
 @endforeach
 ```
