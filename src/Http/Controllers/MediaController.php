@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class MediaController extends Controller
 {
 
-    public function show(GlideServer $server, Request $request)
+    public function show($path, GlideServer $server, Request $request)
     {
-        return $server->outputImage($request);
+        return $server->outputImage($path, $request);
     }
 }

@@ -10,6 +10,28 @@ trait Medias
 
     protected $media;
 
+    public function uploadSingleMedia(UploadedFile $media, $field)
+    {
+        $config  = config('medias.models.' . $this->getTable());
+        $dir     = config('medias.dir') . '/' . $this->getTable();
+        $uploads = $this->upload()->to($dir)->execute($media);
+        $medias  = $this->resizeMedias($uploads, $dir);
+
+        if (! is_null($this->{$field})) {
+            $this->removeSingleMedia($config, $dir, $field);
+        }
+
+        $this->{$field} = $medias->first();
+        return $this->{$field};
+    }
+
+    public function removeSingleMedia($config, $dir, $field)
+    {
+        $destroyer = $this->mediaDestroyerService();
+
+        $destroyer->removeFromModel($this, $config, $dir, $field);
+    }
+
     public function createMultipleMedias($medias)
     {
         if (! $this->areMediasValid($medias)) {
@@ -21,28 +43,6 @@ trait Medias
         $files   = $this->resizeMedias($uploads, $dir);
 
         return $this->mediaService()->to($this)->save($files);
-    }
-
-    public function removeSingleMedia($config, $field)
-    {
-        $destroyer = $this->mediaDestroyerService();
-
-        $destroyer->removeFromModel($this, $config, 'avatar');
-    }
-
-    public function storeSingleMedia(UploadedFile $media, $config, $field)
-    {
-        $config  = config('medias.models.' . $config);
-        $dir     = $config['dir'];
-        $uploads = $this->upload()->to($dir)->execute($media);
-        $medias  = $this->resizeMedias($uploads, $dir);
-
-        if (! is_null($this->{$field})) {
-            $this->removeSingleMedia($config, $field);
-        }
-
-        $this->{$field} = $medias->first();
-        return $this->{$field};
     }
 
     public function detachMedias($ids = [])

@@ -1,6 +1,6 @@
 <?php
 
-namespace EscapeWork\LaraMedias\Traits;
+namespace EscapeWork\LaraMedias\Presenters;
 
 trait PresenterSingleModelMethod
 {
@@ -18,7 +18,7 @@ trait PresenterSingleModelMethod
         $field = $options['field'];
 
         if ($picture = $this->model->{$field}) {
-            return asset('media/'.$options['folder'].'/' . $picture . '?w=' . $options['width'] . '&h=' . $options['height'] . '&fit=' . $options['fit']);
+            return asset('medias/'.$options['folder'].'/' . $picture . '?w=' . $options['width'] . '&h=' . $options['height'] . '&fit=' . $options['fit']);
         }
     }
 }

@@ -23,7 +23,7 @@ class MediaCollection extends Collection
 
     public function resize($dir)
     {
-        $mediaService = app('EscapeWork\Manager\Medias\Services\MediasResizeService');
+        $mediaService = app('EscapeWork\LaraMedias\Services\MediasResizeService');
 
         $this->each(function ($media) use ($dir, $mediaService) {
             $mediaService->resize($dir . '/' . $media);

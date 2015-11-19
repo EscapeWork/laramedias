@@ -56,15 +56,14 @@ class MediasServiceProvider extends ServiceProvider
      */
     protected function registerGlideServer()
     {
-        $this->app->singleton('League\Glide\Server', function ($app) {
+        $this->app->singleton('League\Glide\Server', function($app) {
             $filesystem = $app->make('Illuminate\Contracts\Filesystem\Filesystem');
 
             return ServerFactory::create([
                 'source'             => $filesystem->getDriver(),
                 'cache'              => $filesystem->getDriver(),
-                'source_path_prefix' => 'files',
-                'cache_path_prefix'  => 'images/.cache',
-                'base_url'           => 'media',
+                'source_path_prefix' => 'app/medias',
+                'cache_path_prefix'  => 'medias/.cache',
             ]);
         });
     }
