@@ -62,7 +62,7 @@ class MediasServiceProvider extends ServiceProvider
             return ServerFactory::create([
                 'source'             => $filesystem->getDriver(),
                 'cache'              => $filesystem->getDriver(),
-                'source_path_prefix' => 'app/medias',
+                'source_path_prefix' => '',
                 'cache_path_prefix'  => 'medias/.cache',
             ]);
         });

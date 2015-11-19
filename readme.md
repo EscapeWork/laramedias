@@ -25,7 +25,7 @@ Execute the following code:
 ```
 $ php artisan vendor:publish --provider="EscapeWork\LaraMedias\Providers\MediasServiceProvider"
 $ php artisan migrate
-``
+```
 
 ### Usage
 
