@@ -19,16 +19,8 @@ class EventServiceProvider extends ServiceProvider
         $this->app['events']->listen('eloquent.deleted:*', function($model) {
             $destroyer = $this->app->make('EscapeWork\LaraMedias\Services\MediasDestroyerService');
 
-            // medias table
-            foreach (config('medias.medias.tables') as $config) {
-                if (get_class($model) === $config['model']) {
-                    $destroyer->removeFromMedias($model);
-                    return;
-                }
-            }
-
             // model medias
-            foreach (config('medias.models') as $config) {
+            foreach ((array) config('medias.models') as $config) {
                 if (get_class($model) === $config['model']) {
                     $destroyer->removeFromModel($model, $config);
                     return;
