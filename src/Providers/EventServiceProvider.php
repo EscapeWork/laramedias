@@ -22,7 +22,8 @@ class EventServiceProvider extends ServiceProvider
             // model medias
             foreach ((array) config('medias.models') as $config) {
                 if (get_class($model) === $config['model']) {
-                    $destroyer->removeFromModel($model, $config);
+                    $dir = config('medias.dir') . '/' . $model->getTable();
+                    $destroyer->removeFromModel($model, $config, $dir);
                     return;
                 }
             }
