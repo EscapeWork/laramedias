@@ -4,18 +4,16 @@ A Laravel package that integrates [Glide](http://glide.thephpleague.com) for eas
 
 ### IN DEVELOPMENT
 
-# Laramedias
-
-A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage medias on your project.
-
-### IN DEVELOPMENT
-
 ### Installation
 
 Just execute the following code:
 
 ```
 $ composer require escapework/laramedias
+```
+
+Or add this line to your `composer.json` file:
+    "escapework/laramedias": "0.1.*"
 ```
 
 ### Configuration
@@ -59,9 +57,9 @@ $product->createMultipleMedias($request->file('medias'))`;
 
 The `$product->medias` will be a default Laravel collection of `EscapeWork\LaraMedias\Models\Media` models which you can use any of the collection methods available.
 
-```blade
+```php
 @foreach ($product->medias as $media)
-    {{-- all media models have an presenter class so you can easily show the image in different forms --}}
+    <?php /* all media models have an presenter class so you can easily show the image in different forms */ ?>
     <img src="{{ $media->present->picture(600, 300, 'crop') }}">
 @endforeach
 ```
