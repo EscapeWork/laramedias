@@ -47,17 +47,17 @@ class MediasDestroyerService
     public function removeFromModel($model, $config, $dir, $field = null)
     {
         if (is_null($field)) {
-            $this->removeAllFromModel($model, $config);
+            $this->removeAllFromModel($model, $config, $dir);
             return;
         }
 
         $this->removeMedia($dir . '/' . $model->{$field});
     }
 
-    public function removeAllFromModel($model, $config)
+    public function removeAllFromModel($model, $config, $dir)
     {
         foreach ($config['fields'] as $field) {
-            $this->removeMedia($config['dir'] . '/' . $model->{$field});
+            $this->removeMedia($dir . '/' . $model->{$field});
         }
     }
 
