@@ -11,6 +11,6 @@ class MediaController extends Controller
 
     public function show(GlideServer $server, Request $request)
     {
-        return $server->outputImage($request);
+        return $server->outputImage(strtok($request->server->get('REQUEST_URI'), '?'), $request->all());
     }
 }

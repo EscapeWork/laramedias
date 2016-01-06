@@ -63,8 +63,17 @@ class MediasDestroyerService
 
     protected function removeMedia($file)
     {
+        $this->removeCache($file);
+
         if ($this->files->exists($file)) {
             $this->files->delete($file);
         }
+    }
+
+    protected function removeCache($file)
+    {
+        $key = implode('/', array_slice(explode('/', $file), -2, 2));
+
+        return app('League\Glide\Server')->deleteCache($key);
     }
 }

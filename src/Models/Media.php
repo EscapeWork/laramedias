@@ -70,9 +70,8 @@ class Media extends Model
     {
         $file = config('medias.medias.dir') . '/' . $this->file;
 
-        if (is_file($file)) {
-            unlink($file);
-        }
+        $destroyer = app('EscapeWork\LaraMedias\Services\MediasDestroyerService');
+        $destroyer->removeMedia($file);
 
         return parent::delete();
     }

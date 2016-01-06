@@ -29,9 +29,9 @@ return [
     |--------------------------------------------------------------------------
     */
     'models' => [
-        'banners' => [
-            'model'  => 'App\Models\Banner',
-            'fields' => ['thumb'] // here you have to put the fields in your model which use medias
-        ],
+        // 'banners' => [
+        //     'model'  => 'App\Models\Banner',
+        //     'fields' => ['banner'] // here you have to put the fields in your model which use medias
+        // ],
     ],
 ];
