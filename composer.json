@@ -6,7 +6,7 @@
     "require": {
         "escapework/laravel-steroids": "0.2.*",
         "escapework/laravel-uploader": "0.1.*",
-        "league/glide": "1.0.*",
+        "league/glide": "1.0.*"
     },
 
     "autoload": {
