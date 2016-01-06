@@ -13,10 +13,18 @@ $ composer require escapework/laramedias
 ```
 
 Or add this line to your `composer.json` file:
+
+```
     "escapework/laramedias": "0.1.*"
 ```
 
 ### Configuration
+
+Add this service provider to your `providers` list:
+
+```
+    EscapeWork\LaraMedias\Providers\MediasServiceProvider::class
+```
 
 Execute the following code:
 
