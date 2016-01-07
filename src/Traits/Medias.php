@@ -32,13 +32,13 @@ trait Medias
         $destroyer->removeFromModel($this, $config, $dir, $field);
     }
 
-    public function createMultipleMedias($medias)
+    public function uploadMultipleMedias($medias)
     {
         if (! $this->areMediasValid($medias)) {
             return;
         }
 
-        $dir     = config('medias.medias.dir');
+        $dir     = config('medias.dir') . '/' . config('medias.path');
         $uploads = $this->upload()->to($dir)->execute($medias);
         $files   = $this->resizeMedias($uploads, $dir);
 
@@ -87,5 +87,4 @@ trait Medias
     {
         return app('EscapeWork\LaraMedias\Services\MediaService');
     }
-
 }

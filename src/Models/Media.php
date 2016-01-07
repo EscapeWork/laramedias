@@ -68,7 +68,7 @@ class Media extends Model
 
     public function delete()
     {
-        $file = config('medias.medias.dir') . '/' . $this->file;
+        $file = config('medias.dir') . '/' . config('medias.path') . '/' . $this->file;
 
         $destroyer = app('EscapeWork\LaraMedias\Services\MediasDestroyerService');
         $destroyer->removeMedia($file);

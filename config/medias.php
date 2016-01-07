@@ -18,7 +18,8 @@ return [
     | Default multiple medias directory and URL
     |--------------------------------------------------------------------------
     */
-    'dir' => storage_path() . '/app/medias',
+    'dir'  => storage_path() . '/app/medias',
+    'path' => 'general',
 
     /*
     |--------------------------------------------------------------------------
