@@ -4,31 +4,23 @@
 
 A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage medias on your project.
 
-### IN DEVELOPMENT
-
 ### Installation
 
-Just execute the following code:
+Via Composer:
 
 ```
-$ composer require escapework/laramedias
-```
-
-Or add this line to your `composer.json` file:
-
-```
-    "escapework/laramedias": "0.1.*"
+$ composer require escapework/laramedias:"0.1.*"
 ```
 
 ### Configuration
 
 Add this service provider to your `providers` list:
 
-```
+```php
     EscapeWork\LaraMedias\Providers\MediasServiceProvider::class
 ```
 
-Execute the following code:
+And execute the following code:
 
 ```
 $ php artisan vendor:publish --provider="EscapeWork\LaraMedias\Providers\MediasServiceProvider"
@@ -73,3 +65,9 @@ The `$product->medias` will be a default Laravel collection of `EscapeWork\LaraM
     <img src="{{ $media->present->picture(600, 300, 'crop') }}">
 @endforeach
 ```
+
+Each `$media` object will be a `LaraMedias\Movels\Media` eloquent model, which will have a presenter for easily displaying images (see the above example).
+
+The parameters in the example are the [Glide](http://glide.thephpleague.com/) width (`w`), height (`h`) and `fit`. You can see a simple example here (http://glide.thephpleague.com/1.0/simple-example/).
+
+If your model was deleted, all the medias will be deleted too.

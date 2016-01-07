@@ -8,7 +8,17 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 trait Medias
 {
 
-    protected $media;
+    /**
+     * Boot the medias trait for a model.
+     *
+     * @return void
+     */
+    public static function bootMedias()
+    {
+        static::deleting(function() {
+            $this->removeMedias();
+        });
+    }
 
     public function uploadSingleMedia(UploadedFile $media, $field)
     {
