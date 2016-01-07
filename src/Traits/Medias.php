@@ -45,15 +45,20 @@ trait Medias
         return $this->mediaService()->to($this)->save($files);
     }
 
+    public function removeMedias()
+    {
+        $ids = $this->medias->lists('id');
+
+        return $this->detachMedias($ids);
+    }
+
     public function detachMedias($ids = [])
     {
         if (is_null($ids) || count($ids) == 0) {
             return;
         }
 
-        $destroyer = $this->mediaDestroyerService();
-
-        return $destroyer->removeSpecificMedias($ids);
+        return $this->mediaDestroyerService()->removeSpecificMedias($ids);
     }
 
     protected function resizeMedias($files, $dir)
