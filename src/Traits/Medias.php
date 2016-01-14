@@ -81,7 +81,7 @@ trait Medias
 
     protected function upload()
     {
-        return app('EscapeWork\LaravelUploader\Upload');
+        return app('EscapeWork\LaravelSteroids\Upload');
     }
 
     protected function areMediasValid($medias)

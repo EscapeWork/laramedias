@@ -3,7 +3,7 @@
 namespace EscapeWork\LaraMedias\Services;
 
 use EscapeWork\LaraMedias\Models\Media;
-use EscapeWork\LaravelUploader\Collections\UploadCollection;
+use EscapeWork\LaravelSteroids\Upload\UploadCollection;
 
 class MediaService
 {
