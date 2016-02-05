@@ -15,8 +15,8 @@ trait Medias
      */
     public static function bootMedias()
     {
-        static::deleting(function() {
-            $this->removeMedias();
+        static::deleting(function($model) {
+            $model->removeMedias();
         });
     }
 
