@@ -85,25 +85,16 @@ class Media extends Model
 
     public function getFullPathAttribute()
     {
-        return asset(config('medias.medias.url') . '/' . $this->attributes['file']);
-    }
-
-    public function getNextOrder()
-    {
-        $order = $this->where('media_model', '=', $this->media_model)
-                            ->where('model_id', '=', $this->model_id)
-                            ->orderBy('order', 'desc')
-                            ->first();
-
-        if ($order) {
-            return $order->order + 1;
+        if ($this->attributes['type'] === 'video') {
+            return $this->present()->picture();
         }
 
-        return 1;
+        return asset(config('medias.url') . '/' . config('medias.path') . '/' . $this->attributes['file']);
     }
 
     public function isVideo()
     {
         return $this->type == 'video';
     }
+
 }

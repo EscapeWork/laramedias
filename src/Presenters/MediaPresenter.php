@@ -7,7 +7,7 @@ use EscapeWork\LaravelSteroids\Presenter;
 class MediaPresenter extends Presenter
 {
 
-    public function picture($w, $h, $fit = 'resize')
+    public function picture($w = null, $h = null, $fit = 'resize')
     {
         # se for vídeo, retorna a thumb do youtube
         if ($this->model->type === 'video') {
