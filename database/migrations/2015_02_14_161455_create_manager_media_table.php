@@ -11,7 +11,7 @@ class CreateManagerMediaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('manager_medias', function($table)
+		Schema::create('laramedias', function($table)
 		{
 			$table->engine = 'InnoDB';
             $table->increments('id');

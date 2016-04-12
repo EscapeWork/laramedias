@@ -3,6 +3,7 @@
 namespace EscapeWork\LaraMedias\Models;
 
 use EscapeWork\LaravelSteroids\Model;
+use EscapeWork\LaravelSteroids\SortableTrait;
 use EscapeWork\LaravelSteroids\PresentableTrait;
 use EscapeWork\LaraMedias\Collections\MediaCollection;
 
@@ -10,19 +11,9 @@ class Media extends Model
 {
 
     /**
-     * Presentable
-     */
-    use PresentableTrait;
-
-    /**
-     * Presenter attribute
-     */
-    protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
-
-    /**
      * Table
      */
-    protected $table = 'manager_medias';
+    protected $table = 'laramedias';
 
     /**
      * Fillable fields
@@ -31,7 +22,8 @@ class Media extends Model
         'id',
         'media_model',
         'model_id',
-        'file',
+        'type',
+        'file', // pode ser o nome da imagem ou o código do vídeo
         'size',
         'caption',
         'credits',
@@ -44,6 +36,16 @@ class Media extends Model
      * Append fields
      */
     protected $appends = ['full_path'];
+
+    /**
+     * Traits
+     */
+    use PresentableTrait, SortableTrait;
+
+    /**
+     * Presenter attribute
+     */
+    protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
 
     public function scopeActive($query)
     {
@@ -98,5 +100,10 @@ class Media extends Model
         }
 
         return 1;
+    }
+
+    public function isVideo()
+    {
+        return $this->type == 'video';
     }
 }

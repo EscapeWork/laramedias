@@ -104,4 +104,14 @@ trait Medias
     {
         return app('EscapeWork\LaraMedias\Services\MediaService');
     }
+
+    public function addVideo($video)
+    {
+        return Media::create([
+            'model_id'    => $this->id,
+            'media_model' => get_class($this),
+            'type'        => 'video',
+            'file'        => $video,
+        ]);
+    }
 }
