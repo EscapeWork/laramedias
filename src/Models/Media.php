@@ -85,7 +85,7 @@ class Media extends Model
 
     public function getFullPathAttribute()
     {
-        if ($this->attributes['type'] === 'video') {
+        if (isset($this->attributes['type']) && $this->attributes['type'] === 'video') {
             return $this->present()->picture();
         }
 
