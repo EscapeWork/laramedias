@@ -58,9 +58,7 @@ trait Medias
     public function removeMedias()
     {
         if ($this->medias && $this->medias->count() > 0) {
-            $ids = $this->medias->lists('id');
-
-            return $this->detachMedias($ids);
+            return $this->detachMedias($this->medias->pluck('id')->toArray());
         }
     }
 
