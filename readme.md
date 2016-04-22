@@ -9,7 +9,7 @@ A Laravel package that integrates [Glide](http://glide.thephpleague.com) for eas
 Via Composer:
 
 ```
-$ composer require escapework/laramedias:"0.1.*"
+$ composer require escapework/laramedias:"0.2.*"
 ```
 
 ### Configuration

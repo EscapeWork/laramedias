@@ -3,6 +3,7 @@
 namespace EscapeWork\LaraMedias\Traits;
 
 use EscapeWork\LaraMedias\Collections\MediaCollection;
+use EscapeWork\LaraMedias\Models\Media;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait Medias
@@ -101,5 +102,15 @@ trait Medias
     protected function mediaService()
     {
         return app('EscapeWork\LaraMedias\Services\MediaService');
+    }
+
+    public function addVideo($video)
+    {
+        return Media::create([
+            'model_id'    => $this->id,
+            'media_model' => get_class($this),
+            'type'        => 'video',
+            'file'        => $video,
+        ]);
     }
 }

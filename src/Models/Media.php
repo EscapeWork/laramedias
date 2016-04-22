@@ -3,6 +3,7 @@
 namespace EscapeWork\LaraMedias\Models;
 
 use EscapeWork\LaravelSteroids\Model;
+use EscapeWork\LaravelSteroids\SortableTrait;
 use EscapeWork\LaravelSteroids\PresentableTrait;
 use EscapeWork\LaraMedias\Collections\MediaCollection;
 
@@ -10,19 +11,9 @@ class Media extends Model
 {
 
     /**
-     * Presentable
-     */
-    use PresentableTrait;
-
-    /**
-     * Presenter attribute
-     */
-    protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
-
-    /**
      * Table
      */
-    protected $table = 'manager_medias';
+    protected $table = 'laramedias';
 
     /**
      * Fillable fields
@@ -31,7 +22,8 @@ class Media extends Model
         'id',
         'media_model',
         'model_id',
-        'file',
+        'type',
+        'file', // pode ser o nome da imagem ou o código do vídeo
         'size',
         'caption',
         'credits',
@@ -44,6 +36,16 @@ class Media extends Model
      * Append fields
      */
     protected $appends = ['full_path'];
+
+    /**
+     * Traits
+     */
+    use PresentableTrait, SortableTrait;
+
+    /**
+     * Presenter attribute
+     */
+    protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
 
     public function scopeActive($query)
     {
@@ -83,20 +85,16 @@ class Media extends Model
 
     public function getFullPathAttribute()
     {
-        return asset(config('medias.medias.url') . '/' . $this->attributes['file']);
-    }
-
-    public function getNextOrder()
-    {
-        $order = $this->where('media_model', '=', $this->media_model)
-                            ->where('model_id', '=', $this->model_id)
-                            ->orderBy('order', 'desc')
-                            ->first();
-
-        if ($order) {
-            return $order->order + 1;
+        if (isset($this->attributes['type']) && $this->attributes['type'] === 'video') {
+            return $this->present()->picture();
         }
 
-        return 1;
+        return asset(config('medias.url') . '/' . config('medias.path') . '/' . $this->attributes['file']);
     }
+
+    public function isVideo()
+    {
+        return $this->type == 'video';
+    }
+
 }

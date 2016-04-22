@@ -48,8 +48,6 @@ class MediaService
     public function to($model)
     {
         $this->model = is_object($model) ? $model : app($model);
-
         return $this;
     }
-
 }
