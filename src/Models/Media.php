@@ -78,6 +78,11 @@ class Media extends Model
         return parent::delete();
     }
 
+    public function mediable()
+    {
+        return $this->morphTo('mediable', 'media_model', 'model_id');
+    }
+
     public function medias()
     {
         return $this->morphTo();
