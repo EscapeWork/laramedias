@@ -12,7 +12,7 @@ class AddCropPositionToManagerMediasTable extends Migration
      */
     public function up()
     {
-        Schema::table('manager_medias', function (Blueprint $table) {
+        Schema::table('laramedias', function (Blueprint $table) {
             $table->string('crop_position', 20)->nullable()->default(null)->default('center')->after('credits');
         });
     }
