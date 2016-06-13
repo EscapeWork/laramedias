@@ -11,7 +11,7 @@ class MediaPresenter extends Presenter
     {
         # se for vídeo, retorna a thumb do youtube
         if ($this->model->type === 'video') {
-            return 'http://img.youtube.com/vi/'.$this->model->file.'/0.jpg';
+            return '//img.youtube.com/vi/'.$this->model->file.'/0.jpg';
         }
 
         return asset(config('medias.url') . '/general/' . $this->model->file . '?w='.$w.'&h='.$h.'&fit='.$fit.'&crop='.$this->model->crop_position);
