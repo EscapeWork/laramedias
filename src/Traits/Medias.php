@@ -36,6 +36,14 @@ trait Medias
         return $this->{$field};
     }
 
+    public function uploadSingleMediaFromPath($path, $name, $field)
+    {
+        copy($path, storage_path($name));
+        $file = new UploadedFile(storage_path($name), $name, null, null, null, true);
+
+        return $this->uploadSingleMedia($file, $field);
+    }
+
     public function removeSingleMedia($config, $dir, $field)
     {
         $destroyer = $this->mediaDestroyerService();
