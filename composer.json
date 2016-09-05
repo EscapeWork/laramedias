@@ -4,7 +4,7 @@
     "license": "MIT",
 
     "require": {
-        "escapework/laravel-steroids": "0.3.*|0.4.*",
+        "escapework/laravel-steroids": "0.3.*",
         "league/glide": "1.0.*"
     },
 
