@@ -4,7 +4,7 @@
     "license": "MIT",
 
     "require": {
-        "escapework/laravel-steroids": "0.3.*",
+        "escapework/laravel-steroids": "0.4.*",
         "league/glide": "1.0.*"
     },
 
@@ -16,7 +16,7 @@
 
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.*-dev"
+            "dev-master": "0.3.*-dev"
         }
     },
 
