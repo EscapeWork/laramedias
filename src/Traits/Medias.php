@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait Medias
 {
-
     /**
      * Boot the medias trait for a model.
      *
@@ -64,8 +63,12 @@ trait Medias
         return $this->mediaService()->to($this)->save($files);
     }
 
-    public function removeMedias()
+    public function removeMedias($ids = null)
     {
+        if ($ids) {
+            return $this->detachMedias((array) $ids);
+        }
+
         if ($this->medias && $this->medias->count() > 0) {
             return $this->detachMedias($this->medias->pluck('id')->toArray());
         }

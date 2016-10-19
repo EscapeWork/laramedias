@@ -31,7 +31,7 @@ $ php artisan migrate
 
 This package allows you to easily use medias with your laravel models. There are two basic ways to use:
 
-#### One model has multiple medias
+### One model has multiple medias
 
 Let's say you have a `Product` model that need to have multiple medias. You have to do this:
 
@@ -72,7 +72,21 @@ The parameters in the example are the [Glide](http://glide.thephpleague.com/) wi
 
 If your model was deleted, all the medias will be deleted too.
 
-#### One model has one media field
+##### Deleting medias
+
+For delete your medias, just call the method `removeMedias`.
+
+```php
+$product->removeMedias([1, 2]); // just pass the IDs
+```
+
+For removing all medias, just call the `removeMedias` method without any parameters.
+
+```php
+$product->removeMedias();
+```
+
+### One model has one media field
 
 Let's say you have a `Banner` model and want to upload a single image for him. With `Laramedias` you can do this:
 
