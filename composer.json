@@ -11,7 +11,11 @@
     "autoload": {
         "psr-4": {
             "EscapeWork\\LaraMedias\\": "src/"
-        }
+        },
+
+        "files": [
+            "src/functions.php"
+        ]
     },
 
     "extra": {

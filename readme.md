@@ -66,8 +66,49 @@ The `$product->medias` will be a default Laravel collection of `EscapeWork\LaraM
 @endforeach
 ```
 
-Each `$media` object will be a `LaraMedias\Movels\Media` eloquent model, which will have a presenter for easily displaying images (see the above example).
+Each `$media` object will be a `LaraMedias\Models\Media` eloquent model, which will have a presenter for easily displaying images (see the above example).
 
 The parameters in the example are the [Glide](http://glide.thephpleague.com/) width (`w`), height (`h`) and `fit`. You can see a simple example here (http://glide.thephpleague.com/1.0/simple-example/).
 
 If your model was deleted, all the medias will be deleted too.
+
+#### One model has one media field
+
+Let's say you have a `Banner` model and want to upload a single image for him. With `Laramedias` you can do this:
+
+First, configure the `config/medias.php` file:
+
+```php
+    'models' => [
+        'banners' => [
+            'model'  => 'App\Models\Banner',
+            'fields' => ['banner'] // here you have to put the fields in your model which use medias
+        ],
+    ],
+```
+
+Second, use the `EscapeWork\LaraMedias\Traits\Medias` trait in your `Banner` model.
+
+```php
+use EscapeWork\LaraMedias\Traits\Medias;
+
+class Banner extends Model
+{
+
+    use Medias;
+}
+```
+
+Then, you can just use the `uploadSingleMedia` method.
+
+```php
+$banner = Banner::find(1);
+$banner->uploadSingleMedia($request->file('banner'), 'banner'); // the second parameter is the field name to be updated
+$banner->save();
+```
+
+After that, you can just use the `media` helper method to show your banner.
+
+```php
+<img src="{{ media($banner, 'banner', 1920, 400, 'crop') }}" alt="...">
+```
