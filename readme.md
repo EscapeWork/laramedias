@@ -35,7 +35,7 @@ This package allows you to easily use medias with your laravel models. There are
 
 Let's say you have a `Product` model that need to have multiple medias. You have to do this:
 
-* Use the following trait in your model;
+* Import the following trait in your model;
 
 ```php
 use EscapeWork\LaraMedias\Traits\Medias;
