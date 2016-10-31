@@ -1,6 +1,7 @@
 # Laramedias
 
-[![Latest Stable Version](https://poser.pugx.org/escapework/laramedias/v/stable.png)](https://packagist.org/packages/escapework/laramedias) [![Total Downloads](https://poser.pugx.org/escapework/laramedias/downloads.png)](https://packagist.org/packages/escapework/laramedias)
+<p align="center">
+[![Latest Stable Version](https://poser.pugx.org/escapework/laramedias/v/stable.png)](https://packagist.org/packages/escapework/laramedias) [![Total Downloads](https://poser.pugx.org/escapework/laramedias/downloads.png)](https://packagist.org/packages/escapework/laramedias)<a href="https://styleci.io/repos/45929157/shield?style=flat"><img src="https://styleci.io/repos/45929157/shield?style=flat" alt="Build Status"></a>
 
 A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage medias on your project.
 
