@@ -2,6 +2,7 @@
 
 namespace EscapeWork\LaraMedias\Services;
 
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 
 class MediasResizeService
@@ -18,12 +19,12 @@ class MediasResizeService
 
     public function resize($image)
     {
-        $width = config('medias.max_size.width');
+        $width  = config('medias.max_size.width');
         $height = config('medias.max_size.height');
 
         // this orientate method needs to be called because sometimes
         // images uploaded came rotated, but need to be ajusted
-        $img = $this->image->make($image)->orientate();
+        $img = $this->image->make(Storage::disk(config('medias.disk'))->get($image))->orientate();
 
         if ($img->width() <= $width && $img->height() <= $height) {
             return;
@@ -32,7 +33,9 @@ class MediasResizeService
         if ($img->width() > $width && $img->height() > $height) {
             $img->resize($width, $height, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save($image);
+            });
+
+            Storage::disk(config('medias.disk'))->put($image, $img->stream());
 
             return;
         }
@@ -47,6 +50,6 @@ class MediasResizeService
             $constraint->aspectRatio();
         });
 
-        $img->save($image);
+        Storage::disk(config('medias.disk'))->put($image, $img->stream());
     }
 }
