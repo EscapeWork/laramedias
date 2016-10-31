@@ -87,7 +87,6 @@ class MediasServiceProvider extends ServiceProvider
     protected function registerProviders()
     {
         $this->app->register('EscapeWork\LaraMedias\Providers\RouteServiceProvider');
-        $this->app->register('EscapeWork\LaravelSteroids\SteroidsServiceProvider');
 
         if ($this->app['request']->is(config('manager.url') . '/*')) {
             $this->app->register('EscapeWork\LaraMedias\Providers\EventServiceProvider');
