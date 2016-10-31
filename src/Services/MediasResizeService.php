@@ -19,7 +19,7 @@ class MediasResizeService
 
     public function resize($image)
     {
-        $width  = config('medias.max_size.width');
+        $width = config('medias.max_size.width');
         $height = config('medias.max_size.height');
 
         // this orientate method needs to be called because sometimes
