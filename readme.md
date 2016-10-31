@@ -1,7 +1,7 @@
 # Laramedias
 
 <p align="center">
-<a href="https://poser.pugx.org/escapework/laramedias/v/stable.png"><img src="https://packagist.org/packages/escapework/laramedias" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/v/stable.png" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/downloads.png" alt="Downloads"></a>
 <a href="https://styleci.io/repos/45929157/shield?style=flat"><img src="https://styleci.io/repos/45929157/shield?style=flat" alt="Build Status"></a>
 </p>
