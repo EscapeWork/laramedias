@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class MediaCollection extends Collection
 {
-
     public function __construct($models)
     {
         if ($models instanceof UploadCollection) {
@@ -18,7 +17,6 @@ class MediaCollection extends Collection
         } else {
             parent::__construct($models);
         }
-
     }
 
     public function resize($dir)
@@ -26,7 +24,7 @@ class MediaCollection extends Collection
         $resizer = app('EscapeWork\LaraMedias\Services\MediasResizeService');
 
         $this->each(function ($media) use ($dir, $resizer) {
-            $resizer->resize($dir . '/' . $media);
+            $resizer->resize($dir.'/'.$media);
         });
     }
 
@@ -37,7 +35,7 @@ class MediaCollection extends Collection
 
     public function destroyAll()
     {
-        $this->each(function($media) {
+        $this->each(function ($media) {
             $media->delete();
         });
     }

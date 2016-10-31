@@ -6,7 +6,6 @@ use Intervention\Image\ImageManager;
 
 class MediasResizeService
 {
-
     /**
      * @var Intervention\Image\ImageManager
      */
@@ -19,11 +18,11 @@ class MediasResizeService
 
     public function resize($image)
     {
-        $width  = config('medias.max_size.width');
+        $width = config('medias.max_size.width');
         $height = config('medias.max_size.height');
 
-        # this orientate method needs to be called because sometimes
-        # images uploaded came rotated, but need to be ajusted
+        // this orientate method needs to be called because sometimes
+        // images uploaded came rotated, but need to be ajusted
         $img = $this->image->make($image)->orientate();
 
         if ($img->width() <= $width && $img->height() <= $height) {
@@ -31,7 +30,7 @@ class MediasResizeService
         }
 
         if ($img->width() > $width && $img->height() > $height) {
-            $img->resize($width, $height, function($constraint) {
+            $img->resize($width, $height, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($image);
 
