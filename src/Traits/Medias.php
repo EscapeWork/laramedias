@@ -24,7 +24,10 @@ trait Medias
     {
         $config  = config('medias.models.' . $this->getTable());
         $dir     = config('medias.dir') . '/' . $this->getTable();
-        $uploads = $this->upload()->to($dir)->execute($media);
+        $uploads = $this->upload()->to($dir)
+                                  ->disk(config('medias.disk'))
+                                  ->execute($media);
+
         $medias  = $this->resizeMedias($uploads, $dir);
 
         if (! is_null($this->{$field})) {
@@ -46,7 +49,6 @@ trait Medias
     public function removeSingleMedia($config, $dir, $field)
     {
         $destroyer = $this->mediaDestroyerService();
-
         $destroyer->removeFromModel($this, $config, $dir, $field);
     }
 
@@ -57,9 +59,12 @@ trait Medias
         }
 
         $dir     = config('medias.dir') . '/' . config('medias.path');
-        $uploads = $this->upload()->to($dir)->execute($medias);
-        $files   = $this->resizeMedias($uploads, $dir);
+        $uploads = $this->upload()
+                        ->to($dir)
+                        ->disk(config('medias.disk'))
+                        ->execute($medias);
 
+        $files = $this->resizeMedias($uploads, $dir);
         return $this->mediaService()->to($this)->save($files);
     }
 
@@ -80,7 +85,8 @@ trait Medias
             return;
         }
 
-        return $this->mediaDestroyerService()->removeSpecificMedias($ids);
+        return $this->mediaDestroyerService()
+                    ->removeSpecificMedias($ids);
     }
 
     protected function resizeMedias($files, $dir)

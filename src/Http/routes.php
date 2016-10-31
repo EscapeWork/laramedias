@@ -5,7 +5,7 @@
 |------------------------------------------------------------------------------
 */
 
-Route::get('medias/{path}', [
+Route::get(config('medias.url').'/{path}', [
     'as'   => 'manager.media.show',
     'uses' => 'MediaController@show',
 ])->where('path', '.+');

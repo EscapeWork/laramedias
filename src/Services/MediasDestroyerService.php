@@ -4,26 +4,18 @@ namespace EscapeWork\LaraMedias\Services;
 
 use EscapeWork\LaraMedias\Models\Media;
 use EscapeWork\LaraMedias\Contracts\Mediable;
-
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 
 class MediasDestroyerService
 {
-
     /**
      * @var EscapeWork\LaraMedias\Models\Media
      */
     protected $media;
 
-    /**
-     * @var Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
-
-    public function __construct(Media $media, Filesystem $files)
+    public function __construct(Media $media)
     {
         $this->media = $media;
-        $this->files = $files;
     }
 
     public function removeSpecificMedias(array $ids = [])
@@ -65,8 +57,8 @@ class MediasDestroyerService
     {
         $this->removeCache($file);
 
-        if ($this->files->exists($file)) {
-            $this->files->delete($file);
+        if (Storage::disk(config('medias.disk'))->exists($file)) {
+            Storage::disk(config('medias.disk'))->delete($file);
         }
     }
 

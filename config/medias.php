@@ -4,6 +4,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default disk for saving medias
+    | Just fill this config if it is diff from filesystem defaults
+    |--------------------------------------------------------------------------
+    */
+    'disk' => null,
+
+    /*
+    |--------------------------------------------------------------------------
     | When a picture is uploaded
     | We resize to this max size option here
     |--------------------------------------------------------------------------
@@ -19,7 +27,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'url'  => 'medias',
-    'dir'  => storage_path() . '/app/medias',
+    'dir'  => 'medias',
     'path' => 'general',
 
     /*
