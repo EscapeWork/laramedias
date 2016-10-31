@@ -27,6 +27,22 @@ $ php artisan vendor:publish --provider="EscapeWork\LaraMedias\Providers\MediasS
 $ php artisan migrate
 ```
 
+Configurations explained:
+
+```
+'disk' => null, // if you dont want to use filesystems.default disk config, change it here...
+                // ...for saving on another disk
+
+'max_size' => [
+    'width'  => 2000, // when creating medias, the images will be resized to this max_size...
+    'height' => 2000, // ...for reducing disk usage
+],
+
+'url'  => 'medias',  // if you want to change the laravel glide medias URL
+'dir'  => 'medias',  // if you want to change the default directory where the medias are saved
+'path' => 'general', // if you want to change the directory where the multipleMedias are saved (you will undestand this later)
+```
+
 ### Usage
 
 This package allows you to easily use medias with your laravel models. There are two basic ways to use:
@@ -52,7 +68,7 @@ Now, you can do this:
 ##### Upload and create multiple medias:
 
 ```php
-$product->createMultipleMedias($request->file('medias'))`;
+$product->uploadMultipleMedias($request->file('medias'))`;
 ```
 
 ##### Interate through your medias
@@ -126,3 +142,11 @@ After that, you can just use the `media` helper method to show your banner.
 ```php
 <img src="{{ media($banner, 'banner', 1920, 400, 'crop') }}" alt="...">
 ```
+
+## Contributing
+
+Feel free to open any pull request/issue with your idea/bug/suggestion.
+
+## License
+
+See the [License](https://github.com/EscapeWork/laravel-asset-versioning/blob/master/LICENSE) file.

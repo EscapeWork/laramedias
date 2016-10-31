@@ -23,10 +23,10 @@ class MediaCollection extends Collection
 
     public function resize($dir)
     {
-        $mediaService = app('EscapeWork\LaraMedias\Services\MediasResizeService');
+        $resizer = app('EscapeWork\LaraMedias\Services\MediasResizeService');
 
-        $this->each(function ($media) use ($dir, $mediaService) {
-            $mediaService->resize($dir . '/' . $media);
+        $this->each(function ($media) use ($dir, $resizer) {
+            $resizer->resize($dir . '/' . $media);
         });
     }
 
@@ -37,7 +37,7 @@ class MediaCollection extends Collection
 
     public function destroyAll()
     {
-        $this->each(function ($media) {
+        $this->each(function($media) {
             $media->delete();
         });
     }

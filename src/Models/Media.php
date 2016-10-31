@@ -9,7 +9,6 @@ use EscapeWork\LaraMedias\Collections\MediaCollection;
 
 class Media extends Model
 {
-
     /**
      * Table
      */
@@ -22,8 +21,7 @@ class Media extends Model
         'id',
         'media_model',
         'model_id',
-        'type',
-        'file', // pode ser o nome da imagem ou o código do vídeo
+        'file',
         'size',
         'caption',
         'credits',
@@ -101,5 +99,4 @@ class Media extends Model
     {
         return $this->type == 'video';
     }
-
 }
