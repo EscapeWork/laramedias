@@ -2,20 +2,20 @@
 
 namespace EscapeWork\LaraMedias\Models;
 
-use EscapeWork\LaravelSteroids\Model;
-use EscapeWork\LaravelSteroids\SortableTrait;
-use EscapeWork\LaravelSteroids\PresentableTrait;
 use EscapeWork\LaraMedias\Collections\MediaCollection;
+use EscapeWork\LaravelSteroids\Model;
+use EscapeWork\LaravelSteroids\PresentableTrait;
+use EscapeWork\LaravelSteroids\SortableTrait;
 
 class Media extends Model
 {
     /**
-     * Table
+     * Table.
      */
     protected $table = 'laramedias';
 
     /**
-     * Fillable fields
+     * Fillable fields.
      */
     public $fillable = [
         'id',
@@ -31,17 +31,17 @@ class Media extends Model
     ];
 
     /**
-     * Append fields
+     * Append fields.
      */
     protected $appends = ['full_path'];
 
-    /**
+    /*
      * Traits
      */
     use PresentableTrait, SortableTrait;
 
     /**
-     * Presenter attribute
+     * Presenter attribute.
      */
     protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
 
@@ -68,7 +68,7 @@ class Media extends Model
 
     public function delete()
     {
-        $file = config('medias.dir') . '/' . config('medias.path') . '/' . $this->file;
+        $file = config('medias.dir').'/'.config('medias.path').'/'.$this->file;
 
         $destroyer = app('EscapeWork\LaraMedias\Services\MediasDestroyerService');
         $destroyer->removeMedia($file);
@@ -92,7 +92,7 @@ class Media extends Model
             return $this->present()->picture();
         }
 
-        return asset(config('medias.url') . '/' . config('medias.path') . '/' . $this->attributes['file']);
+        return asset(config('medias.url').'/'.config('medias.path').'/'.$this->attributes['file']);
     }
 
     public function isVideo()

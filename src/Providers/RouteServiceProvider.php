@@ -2,12 +2,11 @@
 
 namespace EscapeWork\LaraMedias\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-
     /**
      * This namespace is applied to the controller routes in your routes file.
      *
@@ -34,10 +33,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        if (! $this->app->routesAreCached()) {
-            Route::group(['namespace' => 'EscapeWork\LaraMedias\Http\Controllers'], function()
-            {
-                require __DIR__ . '/../Http/routes.php';
+        if (!$this->app->routesAreCached()) {
+            Route::group(['namespace' => 'EscapeWork\LaraMedias\Http\Controllers'], function () {
+                require __DIR__.'/../Http/routes.php';
             });
         }
     }

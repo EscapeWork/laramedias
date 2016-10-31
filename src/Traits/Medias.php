@@ -3,7 +3,6 @@
 namespace EscapeWork\LaraMedias\Traits;
 
 use EscapeWork\LaraMedias\Collections\MediaCollection;
-use EscapeWork\LaraMedias\Models\Media;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait Medias
@@ -15,26 +14,27 @@ trait Medias
      */
     public static function bootMedias()
     {
-        static::deleting(function($model) {
+        static::deleting(function ($model) {
             $model->removeMedias();
         });
     }
 
     public function uploadSingleMedia(UploadedFile $media, $field)
     {
-        $config  = config('medias.models.' . $this->getTable());
-        $dir     = config('medias.dir') . '/' . $this->getTable();
+        $config = config('medias.models.'.$this->getTable());
+        $dir = config('medias.dir').'/'.$this->getTable();
         $uploads = $this->upload()->to($dir)
                                   ->disk(config('medias.disk'))
                                   ->execute($media);
 
-        $medias  = $this->resizeMedias($uploads, $dir);
+        $medias = $this->resizeMedias($uploads, $dir);
 
-        if (! is_null($this->{$field})) {
+        if (!is_null($this->{$field})) {
             $this->removeSingleMedia($config, $dir, $field);
         }
 
         $this->{$field} = $medias->first();
+
         return $this->{$field};
     }
 
@@ -54,17 +54,18 @@ trait Medias
 
     public function uploadMultipleMedias($medias)
     {
-        if (! $this->areMediasValid($medias)) {
+        if (!$this->areMediasValid($medias)) {
             return;
         }
 
-        $dir     = config('medias.dir') . '/' . config('medias.path');
+        $dir = config('medias.dir').'/'.config('medias.path');
         $uploads = $this->upload()
                         ->to($dir)
                         ->disk(config('medias.disk'))
                         ->execute($medias);
 
         $files = $this->resizeMedias($uploads, $dir);
+
         return $this->mediaService()->to($this)->save($files);
     }
 
