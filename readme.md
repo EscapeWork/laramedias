@@ -33,7 +33,7 @@ $ php artisan migrate
 
 Configurations explained:
 
-```
+```php
 'disk' => null, // if you dont want to use filesystems.default disk config, change it here...
                 // ...for saving on another disk
 
