@@ -13,17 +13,15 @@ class TestCase extends Orchestra\Testbench\TestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom([
+        $this->artisan('migrate', [
             '--database' => 'testbench',
             '--realpath' => realpath(__DIR__.'/../../database/migrations'),
         ]);
 
-        $this->loadMigrationsFrom([
+        $this->artisan('migrate', [
             '--database' => 'testbench',
             '--realpath' => realpath(__DIR__.'/../../tests/migrations'),
         ]);
-
-        $this->artisan('migrate');
     }
 
     protected function getPackageProviders($app)

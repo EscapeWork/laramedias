@@ -37,5 +37,10 @@ class MediasTest extends TestCase
 
         $product     = new Product;
         $product->id = 1;
+
+        $product->uploadSingleMedia($this->getPicture(), 'cover');
+        $product->save();
+
+        $this->assertNotNull(Product::find(1)->cover);
     }
 }
