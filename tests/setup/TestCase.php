@@ -5,7 +5,6 @@ use Illuminate\Http\UploadedFile;
 
 class TestCase extends Orchestra\Testbench\TestCase
 {
-
     /**
      * Setup the test environment.
      */
@@ -34,7 +33,8 @@ class TestCase extends Orchestra\Testbench\TestCase
     /**
      * Define environment setup.
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param \Illuminate\Foundation\Application $app
+     *
      * @return void
      */
     protected function getEnvironmentSetUp($app)
@@ -48,15 +48,15 @@ class TestCase extends Orchestra\Testbench\TestCase
         ]);
     }
 
-    public function getPicture($params = array())
+    public function getPicture($params = [])
     {
-        $pic    = __DIR__ . '/../../tests/files/temp.jpg';
+        $pic = __DIR__.'/../../tests/files/temp.jpg';
         $params = array_merge([
-            'name' => 'picture.jpg'
+            'name' => 'picture.jpg',
         ], $params);
 
-        if (! is_file($pic)) {
-            File::copy(__DIR__ . '/../../tests/files/chrysanthemum.jpg', $pic);
+        if (!is_file($pic)) {
+            File::copy(__DIR__.'/../../tests/files/chrysanthemum.jpg', $pic);
         }
 
         return new UploadedFile(
