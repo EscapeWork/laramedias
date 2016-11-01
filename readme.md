@@ -150,7 +150,7 @@ $banner->save();
 After that, you can just use the `media` helper method to show your banner.
 
 ```php
-<img src="{{ media($banner, 'banner', 1920, 400, 'crop') }}" alt="...">
+<img src="{{ media_path($banner, 'banner', 1920, 400, 'crop') }}" alt="...">
 ```
 
 ## Contributing
