@@ -8,9 +8,9 @@
 <a href="https://github.com/EscapeWork/laramedias"><img src="https://img.shields.io/packagist/l/orchestra/testbench.svg?style=flat" alt="License MIT"></a>
 </p>
 
-A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage medias on your project.
+A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage/showing pictures on your Laravel project.
 
-### Installation
+## Installation
 
 Via Composer:
 
@@ -18,7 +18,7 @@ Via Composer:
 $ composer require escapework/laramedias:"0.4.*"
 ```
 
-### Configuration
+## Configuration
 
 Add this service provider to your `providers` list:
 
@@ -49,7 +49,7 @@ Configurations explained:
 'path' => 'general', // if you want to change the directory where the multipleMedias are saved (you will undestand this later)
 ```
 
-### Usage
+## Usage
 
 This package allows you to easily use medias with your laravel models. There are two basic ways to use:
 
@@ -83,7 +83,11 @@ The `$product->medias` will be a default Laravel collection of `EscapeWork\LaraM
 
 ```php
 @foreach ($product->medias as $media)
-    <?php /* all media models have an presenter class so you can easily show the image in different forms */ ?>
+    <?php /*
+    all media models have an presenter class so you can easily show the image in different forms
+    ->picture($width, $height, $fit)
+    */ ?>
+
     <img src="{{ $media->present->picture(600, 300, 'crop') }}">
 @endforeach
 ```
