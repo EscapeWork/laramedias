@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     /**
-     * Table
+     * Table.
      */
     protected $table = 'products';
 
     /**
-     * Fillable fields
+     * Fillable fields.
      */
     protected $fillable = [
         'title',

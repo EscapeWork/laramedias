@@ -2,11 +2,10 @@
 
 class MediasTest extends TestCase
 {
-
     /** @test */
-    function it_should_upload_media()
+    public function it_should_upload_media()
     {
-        $product     = new Product;
+        $product = new Product();
         $product->id = 1;
 
         $product->uploadMultipleMedias([$this->getPicture()]);
@@ -15,9 +14,9 @@ class MediasTest extends TestCase
     }
 
     /** @test */
-    function it_should_upload_multiple_medias()
+    public function it_should_upload_multiple_medias()
     {
-        $product     = new Product;
+        $product = new Product();
         $product->id = 1;
 
         $product->uploadMultipleMedias([$this->getPicture(), $this->getPicture()]);
@@ -26,7 +25,7 @@ class MediasTest extends TestCase
     }
 
     /** @test */
-    function it_should_upload_single_media()
+    public function it_should_upload_single_media()
     {
         config()->set('medias.models', [
             'products' => [
@@ -35,7 +34,7 @@ class MediasTest extends TestCase
             ],
         ]);
 
-        $product     = new Product;
+        $product = new Product();
         $product->id = 1;
     }
 }
