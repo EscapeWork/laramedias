@@ -121,4 +121,10 @@ trait Medias
     {
         return app('EscapeWork\LaraMedias\Services\MediaService');
     }
+
+    public function medias()
+    {
+        return $this->morphMany('EscapeWork\LaraMedias\Models\Media', 'medias', 'media_model', 'model_id')
+                    ->orderBy('order');
+    }
 }

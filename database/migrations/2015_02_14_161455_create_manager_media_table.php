@@ -33,6 +33,6 @@ class CreateManagerMediaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('manager_medias');
+        Schema::drop('laramedias');
     }
 }

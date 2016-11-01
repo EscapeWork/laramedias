@@ -24,7 +24,7 @@ class AddCropPositionToManagerMediasTable extends Migration
      */
     public function down()
     {
-        Schema::table('manager_medias', function (Blueprint $table) {
+        Schema::table('laramedias', function (Blueprint $table) {
             $table->dropColumn('crop_position');
         });
     }
