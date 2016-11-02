@@ -2,12 +2,11 @@
 
 namespace EscapeWork\LaraMedias\Providers;
 
+use Aws\S3\S3Client;
 use Illuminate\Support\ServiceProvider;
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use League\Flysystem\Filesystem;
 use League\Glide\ServerFactory;
-use Aws\S3\S3Client;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 class MediasServiceProvider extends ServiceProvider
 {
@@ -61,7 +60,7 @@ class MediasServiceProvider extends ServiceProvider
     protected function registerGlideServer()
     {
         $this->app->singleton('League\Glide\Server', function ($app) {
-            $filesystem  = new Filesystem($this->getGlideAdapter());
+            $filesystem = new Filesystem($this->getGlideAdapter());
             $cachesystem = new Filesystem($app->make('Illuminate\Contracts\Filesystem\Filesystem'));
 
             return ServerFactory::create([
