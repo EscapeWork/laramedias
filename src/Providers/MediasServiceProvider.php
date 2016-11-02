@@ -3,7 +3,11 @@
 namespace EscapeWork\LaraMedias\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
 use League\Glide\ServerFactory;
+use Aws\S3\S3Client;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 class MediasServiceProvider extends ServiceProvider
 {
@@ -57,15 +61,38 @@ class MediasServiceProvider extends ServiceProvider
     protected function registerGlideServer()
     {
         $this->app->singleton('League\Glide\Server', function ($app) {
-            $filesystem = $app->make('Illuminate\Contracts\Filesystem\Filesystem');
+            $filesystem  = new Filesystem($this->getGlideAdapter());
+            $cachesystem = new Filesystem($app->make('Illuminate\Contracts\Filesystem\Filesystem'));
 
             return ServerFactory::create([
                 'source'             => $filesystem->getDriver(),
-                'cache'              => $filesystem->getDriver(),
+                'cache'              => $cachesystem->getDriver(),
                 'source_path_prefix' => '',
                 'cache_path_prefix'  => 'medias/.cache',
             ]);
         });
+    }
+
+    protected function getGlideAdapter()
+    {
+        switch (config('medias.disk') ?: config('filesystems.default')) {
+            case 's3':
+                $client = new S3Client([
+                    'credentials' => [
+                        'key'    => config('filesystems.disks.s3.key'),
+                        'secret' => config('filesystems.disks.s3.secret'),
+                    ],
+                    'region'  => config('filesystems.disks.s3.region'),
+                    'version' => 'latest',
+                ]);
+
+                $adapter = new AwsS3Adapter($client, config('filesystems.disks.s3.bucket'));
+
+            default:
+                $adapter = $this->app->make('Illuminate\Contracts\Filesystem\Filesystem');
+        }
+
+        return $adapter;
     }
 
     /**
