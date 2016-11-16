@@ -14,6 +14,6 @@ class MediaPresenter extends Presenter
             return '//img.youtube.com/vi/'.$this->model->file.'/0.jpg';
         }
 
-        return asset(config('medias.url') . '/general/' . $this->model->file . '?w='.$w.'&h='.$h.'&fit='.$fit.'&crop='.$this->model->crop_position);
+        return asset(config('medias.url') . '/general/' . $this->model->file . '?w='.$w.'&h='.$h.'&fit='.$fit);
     }
 }
