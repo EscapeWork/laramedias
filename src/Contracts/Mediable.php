@@ -4,7 +4,6 @@ namespace EscapeWork\LaraMedias\Contracts;
 
 interface Mediable
 {
-
     public function medias();
 
     // Example of implementation of medias() method
