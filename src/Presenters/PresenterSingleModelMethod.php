@@ -4,7 +4,6 @@ namespace EscapeWork\LaraMedias\Presenters;
 
 trait PresenterSingleModelMethod
 {
-
     public function picture($options = [])
     {
         $options = array_merge([
@@ -18,7 +17,7 @@ trait PresenterSingleModelMethod
         $field = $options['field'];
 
         if ($picture = $this->model->{$field}) {
-            return asset(config('medias.url') . '/'.$options['folder'].'/' . $picture . '?w=' . $options['width'] . '&h=' . $options['height'] . '&fit=' . $options['fit']);
+            return asset(config('medias.url').'/'.$options['folder'].'/'.$picture.'?w='.$options['width'].'&h='.$options['height'].'&fit='.$options['fit']);
         }
     }
 }
