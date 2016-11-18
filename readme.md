@@ -8,7 +8,7 @@
 <a href="https://github.com/EscapeWork/laramedias"><img src="https://img.shields.io/packagist/l/orchestra/testbench.svg?style=flat" alt="License MIT"></a>
 </p>
 
-A Laravel package that integrates [Glide](http://glide.thephpleague.com) for easily manage/showing pictures on your Laravel project.
+A Laravel package that integrates [Glide](http://glide.thephpleague.com) and easy media management on your Laravel project.
 
 ## Installation
 
