@@ -12,20 +12,12 @@ class TestCase extends Orchestra\Testbench\TestCase
     {
         parent::setUp();
 
-        $this->artisan('migrate', [
-            '--database' => 'testbench',
-            '--realpath' => realpath(__DIR__.'/../../database/migrations'),
-        ]);
-
-        $this->artisan('migrate', [
-            '--database' => 'testbench',
-            '--realpath' => realpath(__DIR__.'/../../tests/migrations'),
-        ]);
+        $this->artisan('migrate', ['--database' => 'testbench']);
     }
 
     protected function getPackageProviders($app)
     {
-        return [MediasServiceProvider::class];
+        return [MediasServiceProvider::class, TestServiceProvider::class];
     }
 
     /**

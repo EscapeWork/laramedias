@@ -1,5 +1,7 @@
 <?php
 
+use EscapeWork\LaraMedias\Models\Media;
+
 class MediasTest extends TestCase
 {
     /** @test */
@@ -9,7 +11,7 @@ class MediasTest extends TestCase
         $product->id = 1;
 
         $product->uploadMultipleMedias([$this->getPicture()]);
-        $this->seeInDatabase('laramedias', ['model_id' => $product->id]);
+        $this->assertEquals(1, Media::count());
         $this->assertEquals(1, $product->medias->count());
     }
 
@@ -20,7 +22,7 @@ class MediasTest extends TestCase
         $product->id = 1;
 
         $product->uploadMultipleMedias([$this->getPicture(), $this->getPicture()]);
-        $this->seeInDatabase('laramedias', ['model_id' => $product->id]);
+        $this->assertEquals(2, Media::count());
         $this->assertEquals(2, $product->medias->count());
     }
 

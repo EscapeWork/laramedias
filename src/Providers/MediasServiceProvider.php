@@ -27,10 +27,8 @@ class MediasServiceProvider extends ServiceProvider
     {
         $root = __DIR__.'/../..';
 
-        $this->publishes([
-            $root.'/config/medias.php'   => config_path('medias.php'),
-            $root.'/database/migrations' => 'database/migrations',
-        ]);
+        $this->publishes([$root.'/config/medias.php'   => config_path('medias.php')]);
+        $this->loadMigrationsFrom($root.'/database/migrations');
 
         // loading views and translations from resources
         $this->loadValidators();
