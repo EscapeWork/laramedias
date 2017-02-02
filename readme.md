@@ -5,10 +5,20 @@
 <a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/downloads.png" alt="Downloads"></a>
 <a href="https://styleci.io/repos/45929157/shield?style=flat"><img src="https://styleci.io/repos/45929157/shield?style=flat" alt="Build Status"></a>
 <a href="https://travis-ci.org/EscapeWork/laramedias"><img src="https://travis-ci.org/EscapeWork/laramedias.png" alt="Build Status"></a>
-<a href="https://github.com/EscapeWork/laramedias"><img src="https://img.shields.io/packagist/l/orchestra/testbench.svg?style=flat" alt="License MIT"></a>
+<a href="https://github.com/EscapeWork/laramedias"><img src="https://img.shields.io/packagist/l/EscapeWork/laramedias.svg?style=flat" alt="License MIT"></a>
+[![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/EscapeWork/laramedias/0.5.svg?style=flat-square)](https://scrutinizer-ci.com/g/EscapeWork/laramedias/)
 </p>
 
 A Laravel package that integrates [Glide](http://glide.thephpleague.com) and easy media management on your Laravel project.
+
+## Version Compatibility
+
+ Laravel  | Laramedias
+:---------|:----------
+ 5.1.x    | 0.2.x
+ 5.2.x    | 0.3.x
+ 5.3.x    | 0.4.x
+ 5.4.x    | 0.5.x@dev
 
 ## Installation
 
