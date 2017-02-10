@@ -4,8 +4,8 @@ namespace EscapeWork\LaraMedias\Models;
 
 use EscapeWork\LaraMedias\Collections\MediaCollection;
 use EscapeWork\LaravelSteroids\Model;
-use EscapeWork\LaravelSteroids\PresentableTrait;
-use EscapeWork\LaravelSteroids\SortableTrait;
+use EscapeWork\LaravelSteroids\Presentable;
+use EscapeWork\LaravelSteroids\Sortable;
 
 class Media extends Model
 {
@@ -38,7 +38,7 @@ class Media extends Model
     /*
      * Traits
      */
-    use PresentableTrait, SortableTrait;
+    use Presentable, Sortable;
 
     /**
      * Presenter attribute.
