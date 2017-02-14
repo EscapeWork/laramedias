@@ -19,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
                 if (get_class($model) === $config['model']) {
                     $dir = config('medias.dir').'/'.$model->getTable();
 
-                    # removing the media
+                    // removing the media
                     $destroyer = $this->app->make('EscapeWork\LaraMedias\Services\MediasDestroyerService');
                     $destroyer->removeFromModel($model, $config, $dir);
 
