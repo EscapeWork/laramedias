@@ -1,4 +1,6 @@
-# Laramedias
+<p align="center">
+    <img src="http://i.imgur.com/19yH3VW.png" alt="Laramedias">
+</p>
 
 <p align="center">
 <a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/v/stable.png" alt="Latest Stable Version"></a>
