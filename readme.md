@@ -11,16 +11,17 @@
 <a href="https://github.com/EscapeWork/laramedias"><img src="https://scrutinizer-ci.com/g/EscapeWork/laramedias/badges/quality-score.png?b=master" alt="Scrutinizer Quality Score"></a>
 </p>
 
-A Laravel package that integrates [Glide](http://glide.thephpleague.com) and easy media management on your Laravel project.
+<p align="center">A Laravel package that integrates [Glide](http://glide.thephpleague.com) and easy media management on your Laravel project.</p>
 
 ## Version Compatibility
 
  Laravel  | Laramedias
 :---------|:----------
- 5.1.x    | 0.2.x
- 5.2.x    | 0.3.x
+ 5.4.x    | 0.5.x
  5.3.x    | 0.4.x
- 5.4.x    | 0.5.x@dev
+ 5.2.x    | 0.3.x
+ 5.1.x    | 0.2.x
+
 
 ## Installation
 
