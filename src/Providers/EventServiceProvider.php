@@ -12,13 +12,15 @@ class EventServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app['events']->listen('eloquent.deleted:*', function ($model) {
-            $destroyer = $this->app->make('EscapeWork\LaraMedias\Services\MediasDestroyerService');
+        $this->app['events']->listen('eloquent.deleted:*', function ($event, $params) {
+            $model = $params[0];
 
-            // model medias
             foreach ((array) config('medias.models') as $key => $config) {
                 if (get_class($model) === $config['model']) {
                     $dir = config('medias.dir').'/'.$model->getTable();
+
+                    # removing the media
+                    $destroyer = $this->app->make('EscapeWork\LaraMedias\Services\MediasDestroyerService');
                     $destroyer->removeFromModel($model, $config, $dir);
 
                     return;
