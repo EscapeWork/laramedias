@@ -13,6 +13,10 @@
 
 <p align="center">A Laravel package that integrates [Glide](http://glide.thephpleague.com) and easy media management on your Laravel project.</p>
 
+```php
+    <img src="{{ $product->present->picture(500, 300, 'crop') }}" alt="Easy media management">
+```
+
 ## Version Compatibility
 
  Laravel  | Laramedias
@@ -164,6 +168,28 @@ After that, you can just use the `media` helper method to show your banner.
 
 ```php
 <img src="{{ media_path($banner, 'banner', 1920, 400, 'crop') }}" alt="...">
+```
+
+I would also recomend in this case to make use of [Presenters](https://github.com/EscapeWork/LaravelSteroids#presenters). You can use your custom setup or make use of [this package](https://github.com/EscapeWork/LaravelSteroids#presenters) that makes it very easy.
+
+Then, you can setup like this:
+
+```php
+use EscapeWork\LaravelSteroids\Presenter;
+
+class BannerPresenter extends Presenter
+{
+    public function banner($w = 100, $h = 50, $fit = 'fit')
+    {
+        return media_path($this->model, 'banner', $w, $h, $fit);
+    }
+}
+```
+
+And you like this:
+
+```php
+    <img src="{{ $banner->present->banner(1920, 500, 'crop') }}">
 ```
 
 ## Contributing
