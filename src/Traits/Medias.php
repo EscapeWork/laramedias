@@ -52,7 +52,7 @@ trait Medias
         $destroyer->removeFromModel($this, $config, $dir, $field);
     }
 
-    public function uploadMultipleMedias($medias)
+    public function uploadMedias($medias)
     {
         if (!$this->areMediasValid($medias)) {
             return;
@@ -67,6 +67,11 @@ trait Medias
         $files = $this->resizeMedias($uploads, $dir);
 
         return $this->mediaService()->to($this)->save($files);
+    }
+
+    public function uploadMultipleMedias($medias)
+    {
+        return $this->uploadMedias($medias);
     }
 
     public function removeMedias($ids = null)

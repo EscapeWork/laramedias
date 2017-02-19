@@ -91,7 +91,7 @@ Now, you can do this:
 ##### Upload and create multiple medias:
 
 ```php
-$product->uploadMultipleMedias($request->file('medias'))`;
+$product->uploadMedias($request->file('medias'))`;
 ```
 
 ##### Interate through your medias
