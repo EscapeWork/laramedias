@@ -3,7 +3,7 @@
 namespace EscapeWork\LaraMedias\Traits;
 
 use EscapeWork\LaraMedias\Collections\MediaCollection;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Http\UploadedFile;
 
 trait Medias
 {
