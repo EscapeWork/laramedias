@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class MediaCollection extends Collection
 {
-
     public function __construct($models)
     {
         if ($models instanceof UploadCollection) {
@@ -18,7 +17,6 @@ class MediaCollection extends Collection
         } else {
             parent::__construct($models);
         }
-
     }
 
     public function resize($dir)
@@ -26,7 +24,7 @@ class MediaCollection extends Collection
         $mediaService = app('EscapeWork\LaraMedias\Services\MediasResizeService');
 
         $this->each(function ($media) use ($dir, $mediaService) {
-            $mediaService->resize($dir . '/' . $media);
+            $mediaService->resize($dir.'/'.$media);
         });
     }
 

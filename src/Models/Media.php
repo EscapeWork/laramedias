@@ -2,30 +2,29 @@
 
 namespace EscapeWork\LaraMedias\Models;
 
+use EscapeWork\LaraMedias\Collections\MediaCollection;
 use EscapeWork\LaravelSteroids\Model;
 use EscapeWork\LaravelSteroids\PresentableTrait;
-use EscapeWork\LaraMedias\Collections\MediaCollection;
 
 class Media extends Model
 {
-
-    /**
+    /*
      * Presentable
      */
     use PresentableTrait;
 
     /**
-     * Presenter attribute
+     * Presenter attribute.
      */
     protected $presenter = 'EscapeWork\LaraMedias\Presenters\MediaPresenter';
 
     /**
-     * Table
+     * Table.
      */
     protected $table = 'manager_medias';
 
     /**
-     * Fillable fields
+     * Fillable fields.
      */
     public $fillable = [
         'id',
@@ -41,7 +40,7 @@ class Media extends Model
     ];
 
     /**
-     * Append fields
+     * Append fields.
      */
     protected $appends = ['full_path'];
 
@@ -68,7 +67,7 @@ class Media extends Model
 
     public function delete()
     {
-        $file = config('medias.dir') . '/' . config('medias.path') . '/' . $this->file;
+        $file = config('medias.dir').'/'.config('medias.path').'/'.$this->file;
 
         $destroyer = app('EscapeWork\LaraMedias\Services\MediasDestroyerService');
         $destroyer->removeMedia($file);

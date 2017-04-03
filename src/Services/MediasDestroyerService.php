@@ -3,13 +3,10 @@
 namespace EscapeWork\LaraMedias\Services;
 
 use EscapeWork\LaraMedias\Models\Media;
-use EscapeWork\LaraMedias\Contracts\Mediable;
-
 use Illuminate\Filesystem\Filesystem;
 
 class MediasDestroyerService
 {
-
     /**
      * @var EscapeWork\LaraMedias\Models\Media
      */
@@ -48,16 +45,17 @@ class MediasDestroyerService
     {
         if (is_null($field)) {
             $this->removeAllFromModel($model, $config, $dir);
+
             return;
         }
 
-        $this->removeMedia($dir . '/' . $model->{$field});
+        $this->removeMedia($dir.'/'.$model->{$field});
     }
 
     public function removeAllFromModel($model, $config, $dir)
     {
         foreach ($config['fields'] as $field) {
-            $this->removeMedia($dir . '/' . $model->{$field});
+            $this->removeMedia($dir.'/'.$model->{$field});
         }
     }
 
