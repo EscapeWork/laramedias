@@ -3,11 +3,9 @@
 namespace EscapeWork\LaraMedias\Services;
 
 use EscapeWork\LaraMedias\Models\Media;
-use EscapeWork\LaravelSteroids\Upload\UploadCollection;
 
 class MediaService
 {
-
     protected $model;
     protected $media;
     protected $insertedMedias;
@@ -17,7 +15,7 @@ class MediaService
         $this->insertedMedias = [];
 
         $this->config = config('medias.medias');
-        $this->media  = $media;
+        $this->media = $media;
     }
 
     public function save($collection)
@@ -35,7 +33,7 @@ class MediaService
         foreach ($collection as $filename) {
             $candidate['file'] = $filename;
 
-            if (! $media = $this->media->create($candidate)) {
+            if (!$media = $this->media->create($candidate)) {
                 throw new MediaServiceException('Could not create media from collection');
             }
 
@@ -51,5 +49,4 @@ class MediaService
 
         return $this;
     }
-
 }
