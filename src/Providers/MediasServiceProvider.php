@@ -7,7 +7,6 @@ use League\Glide\ServerFactory;
 
 class MediasServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -22,14 +21,14 @@ class MediasServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $root = __DIR__ . '/../..';
+        $root = __DIR__.'/../..';
 
         $this->publishes([
-            $root . '/config/medias.php'   => config_path('medias.php'),
-            $root . '/database/migrations' => 'database/migrations',
+            $root.'/config/medias.php'   => config_path('medias.php'),
+            $root.'/database/migrations' => 'database/migrations',
         ]);
 
-        # loading views and translations from resources
+        // loading views and translations from resources
         $this->loadValidators();
     }
 
@@ -40,23 +39,24 @@ class MediasServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $root = __DIR__ . '/../..';
+        $root = __DIR__.'/../..';
 
         $this->registerProviders();
         $this->registerGlideServer();
 
         $this->mergeConfigFrom(
-            $root . '/config/medias.php', 'medias'
+            $root.'/config/medias.php', 'medias'
         );
     }
 
     /**
-     * Creating Glide server and registering it to the containter
+     * Creating Glide server and registering it to the containter.
+     *
      * @return void
      */
     protected function registerGlideServer()
     {
-        $this->app->singleton('League\Glide\Server', function($app) {
+        $this->app->singleton('League\Glide\Server', function ($app) {
             $filesystem = $app->make('Illuminate\Contracts\Filesystem\Filesystem');
 
             return ServerFactory::create([
@@ -69,7 +69,8 @@ class MediasServiceProvider extends ServiceProvider
     }
 
     /**
-     * Resolving validators
+     * Resolving validators.
+     *
      * @return void
      */
     protected function loadValidators()
@@ -81,7 +82,8 @@ class MediasServiceProvider extends ServiceProvider
     }
 
     /**
-     * Registering third-party providers
+     * Registering third-party providers.
+     *
      * @return void
      */
     protected function registerProviders()
@@ -89,7 +91,7 @@ class MediasServiceProvider extends ServiceProvider
         $this->app->register('EscapeWork\LaraMedias\Providers\RouteServiceProvider');
         $this->app->register('EscapeWork\LaravelSteroids\SteroidsServiceProvider');
 
-        if ($this->app['request']->is(config('manager.url') . '/*')) {
+        if ($this->app['request']->is(config('manager.url').'/*')) {
             $this->app->register('EscapeWork\LaraMedias\Providers\EventServiceProvider');
         }
     }
