@@ -83,7 +83,7 @@ class Media extends Model
 
     public function getFullPathAttribute()
     {
-        return asset(config('medias.medias.url') . '/' . $this->attributes['file']);
+        return asset(config('medias.url') . '/' . $this->attributes['file']);
     }
 
     public function getNextOrder()
