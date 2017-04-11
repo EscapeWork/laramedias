@@ -99,4 +99,10 @@ class Media extends Model
     {
         return $this->type == 'video';
     }
+
+    public function getNextOrder()
+    {
+        return ((int) static::where('model_id', '=', $this->model_id)
+                            ->max($this->sortable['field'])) + 1;
+    }
 }
