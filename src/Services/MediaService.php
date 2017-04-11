@@ -37,7 +37,7 @@ class MediaService
                 throw new MediaServiceException('Could not create media from collection');
             }
 
-            $this->insertedMedias[] = $media->toArray();
+            $this->insertedMedias[] = $media;
         }
 
         return $this->insertedMedias;
