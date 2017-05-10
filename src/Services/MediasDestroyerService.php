@@ -55,6 +55,10 @@ class MediasDestroyerService
 
     public function removeMedia($file)
     {
+        if (! $file) {
+            return;
+        }
+
         $this->removeCache($file);
 
         if (Storage::disk(config('medias.disk'))->exists($file)) {
