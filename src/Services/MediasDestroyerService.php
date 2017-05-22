@@ -43,19 +43,23 @@ class MediasDestroyerService
             return;
         }
 
-        $this->removeMedia($dir.'/'.$model->{$field});
+        if ($model->{$field}) {
+            $this->removeMedia($dir.'/'.$model->{$field});
+        }
     }
 
     public function removeAllFromModel($model, $config, $dir)
     {
         foreach ($config['fields'] as $field) {
-            $this->removeMedia($dir.'/'.$model->{$field});
+            if ($model->{$field}) {
+                $this->removeMedia($dir.'/'.$model->{$field});
+            }
         }
     }
 
     public function removeMedia($file)
     {
-        if (!$file) {
+        if (! $file) {
             return;
         }
 
