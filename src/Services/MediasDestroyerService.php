@@ -59,7 +59,7 @@ class MediasDestroyerService
 
     public function removeMedia($file)
     {
-        if (! $file) {
+        if (!$file) {
             return;
         }
 
