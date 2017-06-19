@@ -51,6 +51,6 @@ return [
     |--------------------------------------------------------------------------
     */
     'glide' => [
-        'load' => env('LARAMEDIAS_GLIDE_SERVER', true)
+        'load' => env('LARAMEDIAS_GLIDE_SERVER', true),
     ],
 ];
