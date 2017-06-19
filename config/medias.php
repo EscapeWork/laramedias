@@ -44,4 +44,13 @@ return [
         //     'fields' => ['banner'] // here you have to put the fields in your model which use medias
         // ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Glide Server
+    |--------------------------------------------------------------------------
+    */
+    'glide' => [
+        'load' => env('LARAMEDIAS_GLIDE_SERVER', true)
+    ],
 ];

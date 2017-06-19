@@ -44,11 +44,14 @@ class MediasServiceProvider extends ServiceProvider
         $root = __DIR__.'/../..';
 
         $this->registerProviders();
-        $this->registerGlideServer();
 
         $this->mergeConfigFrom(
             $root.'/config/medias.php', 'medias'
         );
+
+        if ($this->app['config']->get('medias.glide.load')) {
+            $this->registerGlideServer();
+        }
     }
 
     /**
