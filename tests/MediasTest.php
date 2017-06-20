@@ -1,7 +1,7 @@
 <?php
 
-use EscapeWork\LaraMedias\Models\Media;
 use EscapeWork\LaraMedias\Events\MediaAdded;
+use EscapeWork\LaraMedias\Models\Media;
 
 class MediasTest extends TestCase
 {
