@@ -8,7 +8,6 @@ use EscapeWork\LaraMedias\Events\MediaUpdated;
 
 class MediaObserver
 {
-
     public function created($model)
     {
         event(new MediaAdded($model));
