@@ -9,6 +9,8 @@ use EscapeWork\LaravelSteroids\Sortable;
 
 class Media extends Model
 {
+    use Presentable, Sortable;
+
     /**
      * Table.
      */
@@ -34,11 +36,6 @@ class Media extends Model
      * Append fields.
      */
     protected $appends = ['full_path'];
-
-    /*
-     * Traits
-     */
-    use Presentable, Sortable;
 
     /**
      * Presenter attribute.
@@ -98,11 +95,5 @@ class Media extends Model
     public function isVideo()
     {
         return $this->type == 'video';
-    }
-
-    public function getNextOrder()
-    {
-        return ((int) static::where('model_id', '=', $this->model_id)
-                            ->max($this->sortable['field'])) + 1;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use EscapeWork\LaraMedias\Models\Media;
+use EscapeWork\LaraMedias\Events\MediaAdded;
 
 class MediasTest extends TestCase
 {
@@ -13,6 +14,8 @@ class MediasTest extends TestCase
         $product->uploadMultipleMedias([$this->getPicture()]);
         $this->assertEquals(1, Media::count());
         $this->assertEquals(1, $product->medias->count());
+
+        Event::assertDispatched(MediaAdded::class);
     }
 
     /** @test */
@@ -24,6 +27,9 @@ class MediasTest extends TestCase
         $product->uploadMultipleMedias([$this->getPicture(), $this->getPicture()]);
         $this->assertEquals(2, Media::count());
         $this->assertEquals(2, $product->medias->count());
+
+        Event::assertDispatched(MediaAdded::class);
+        Event::assertDispatched(MediaAdded::class);
     }
 
     /** @test */
@@ -43,5 +49,7 @@ class MediasTest extends TestCase
         $product->save();
 
         $this->assertNotNull(Product::find(1)->cover);
+
+        Event::assertNotDispatched(MediaAdded::class);
     }
 }

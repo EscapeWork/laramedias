@@ -21,6 +21,7 @@
 
  Laravel  | Laramedias
 :---------|:----------
+ 5.4.x    | 0.6.x
  5.4.x    | 0.5.x
  5.3.x    | 0.4.x
  5.2.x    | 0.3.x
@@ -32,7 +33,7 @@
 Via Composer:
 
 ```
-$ composer require escapework/laramedias:"0.5.*"
+$ composer require escapework/laramedias:"0.6.*"
 ```
 
 ## Configuration
@@ -128,6 +129,17 @@ For removing all medias, just call the `removeMedias` method without any paramet
 ```php
 $product->removeMedias();
 ```
+
+#### Events
+
+These events are dispatched when in the above use case:
+
+ Action                                      | Event
+:--------------------------------------------|:----------------------------------------
+ EscapeWork\LaraMedias\Models\Media::created | EscapeWork\LaraMedias\Events\MediaAdded
+ EscapeWork\LaraMedias\Models\Media::updated | EscapeWork\LaraMedias\Events\MediaUpdated
+ EscapeWork\LaraMedias\Models\Media::deleted | EscapeWork\LaraMedias\Events\MediaDeleted
+
 
 ### One model has one media field
 

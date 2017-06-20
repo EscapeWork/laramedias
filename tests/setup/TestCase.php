@@ -11,7 +11,7 @@ class TestCase extends Orchestra\Testbench\TestCase
     public function setUp()
     {
         parent::setUp();
-
+        \Event::fake();
         $this->artisan('migrate', ['--database' => 'testbench']);
     }
 

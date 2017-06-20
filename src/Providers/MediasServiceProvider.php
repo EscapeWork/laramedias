@@ -3,11 +3,13 @@
 namespace EscapeWork\LaraMedias\Providers;
 
 use Aws\S3\S3Client;
-use Illuminate\Support\ServiceProvider;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
-use League\Flysystem\Filesystem;
 use League\Glide\ServerFactory;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local;
+use EscapeWork\LaraMedias\Models\Media;
+use Illuminate\Support\ServiceProvider;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
+use EscapeWork\LaraMedias\Observers\MediaObserver;
 
 class MediasServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,9 @@ class MediasServiceProvider extends ServiceProvider
 
         // loading views and translations from resources
         $this->loadValidators();
+
+        # observers
+        Media::observe(new MediaObserver());
     }
 
     /**
