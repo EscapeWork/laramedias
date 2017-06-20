@@ -5,7 +5,6 @@
 <p align="center">
 <a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/v/stable.png" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/escapework/laramedias"><img src="https://poser.pugx.org/escapework/laramedias/downloads.png" alt="Downloads"></a>
-<a href="https://styleci.io/repos/45929157/shield?style=flat"><img src="https://styleci.io/repos/45929157/shield?style=flat" alt="StyleCI - Build Status"></a>
 <a href="https://travis-ci.org/EscapeWork/laramedias"><img src="https://travis-ci.org/EscapeWork/laramedias.png" alt="Travis - Build Status"></a>
 <a href="https://github.com/EscapeWork/laramedias"><img src="https://img.shields.io/packagist/l/EscapeWork/laramedias.svg?style=flat" alt="License MIT"></a>
 <a href="https://github.com/EscapeWork/laramedias"><img src="https://scrutinizer-ci.com/g/EscapeWork/laramedias/badges/quality-score.png?b=master" alt="Scrutinizer Quality Score"></a>
