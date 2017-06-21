@@ -75,7 +75,7 @@ class MediasDestroyerService
     {
         $key = implode('/', array_slice(explode('/', $file), -3, 3));
 
-        if ($this->app['config']->get('medias.glide.load')) {
+        if (config('medias.glide.load')) {
             return app('League\Glide\Server')->deleteCache($key);
         } else {
             event(new CacheNeedsCleanup($file));
