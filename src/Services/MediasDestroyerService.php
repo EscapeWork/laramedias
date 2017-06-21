@@ -2,9 +2,9 @@
 
 namespace EscapeWork\LaraMedias\Services;
 
+use EscapeWork\LaraMedias\Events\CacheNeedsCleanup;
 use EscapeWork\LaraMedias\Models\Media;
 use Illuminate\Support\Facades\Storage;
-use EscapeWork\LaraMedias\Events\CacheNeedsCleanup;
 
 class MediasDestroyerService
 {

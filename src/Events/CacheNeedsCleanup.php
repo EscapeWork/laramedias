@@ -2,7 +2,6 @@
 
 namespace EscapeWork\LaraMedias\Events;
 
-use EscapeWork\LaraMedias\Models\Media;
 use Illuminate\Queue\SerializesModels;
 
 class CacheNeedsCleanup
