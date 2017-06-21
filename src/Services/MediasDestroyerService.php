@@ -4,6 +4,7 @@ namespace EscapeWork\LaraMedias\Services;
 
 use EscapeWork\LaraMedias\Models\Media;
 use Illuminate\Support\Facades\Storage;
+use EscapeWork\LaraMedias\Events\CacheNeedsCleanup;
 
 class MediasDestroyerService
 {
@@ -74,6 +75,10 @@ class MediasDestroyerService
     {
         $key = implode('/', array_slice(explode('/', $file), -3, 3));
 
-        return app('League\Glide\Server')->deleteCache($key);
+        if ($this->app['config']->get('medias.glide.load')) {
+            return app('League\Glide\Server')->deleteCache($key);
+        } else {
+            event(new CacheNeedsCleanup($file));
+        }
     }
 }
