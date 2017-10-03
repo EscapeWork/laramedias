@@ -20,6 +20,7 @@
 
  Laravel  | Laramedias
 :---------|:----------
+ 5.5.x    | 0.7.x
  5.4.x    | 0.6.x
  5.4.x    | 0.5.x
  5.3.x    | 0.4.x
@@ -32,16 +33,10 @@
 Via Composer:
 
 ```
-$ composer require escapework/laramedias:"0.6.*"
+$ composer require escapework/laramedias:"0.7.*"
 ```
 
 ## Configuration
-
-Add this service provider to your `providers` list:
-
-```php
-    EscapeWork\LaraMedias\Providers\MediasServiceProvider::class
-```
 
 And execute the following code:
 

@@ -4,7 +4,7 @@
     "license": "MIT",
 
     "require": {
-        "escapework/laravel-steroids": "0.6.*",
+        "escapework/laravel-steroids": "0.7.*",
         "league/glide": "1.0.*"
     },
 
@@ -35,7 +35,12 @@
 
     "extra": {
         "branch-alias": {
-            "dev-master": "0.6.*-dev"
+            "dev-master": "0.7.*-dev"
+        },
+        "laravel": {
+            "providers": [
+                "EscapeWork\\LaraMedias\\Providers\\MediasServiceProvider"
+            ]
         }
     },
 
