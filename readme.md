@@ -18,14 +18,14 @@
 
 ## Version Compatibility
 
- Laravel  | Laramedias
-:---------|:----------
- 5.5.x    | 0.7.x
- 5.4.x    | 0.6.x
- 5.4.x    | 0.5.x
- 5.3.x    | 0.4.x
- 5.2.x    | 0.3.x
- 5.1.x    | 0.2.x
+ Laravel           | Laramedias
+:------------------|:----------
+ 5.5.x|5.6.x|5.7.x | 0.7.x
+ 5.4.x             | 0.6.x
+ 5.4.x             | 0.5.x
+ 5.3.x             | 0.4.x
+ 5.2.x             | 0.3.x
+ 5.1.x             | 0.2.x
 
 
 ## Installation
