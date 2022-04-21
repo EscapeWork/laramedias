@@ -5,14 +5,14 @@
 
     "require": {
         "escapework/laravel-steroids": "0.7.*",
-        "league/glide": "1.0.*"
+        "league/glide": "^2.2"
     },
 
     "require-dev": {
-        "phpunit/phpunit": "~5.0",
-        "mockery/mockery": "0.9.*",
-        "orchestra/testbench": "3.4.*",
-        "orchestra/testbench-browser-kit": "3.4.*",
+        "phpunit/phpunit": "~9.0",
+        "mockery/mockery": "1.5.*",
+        "orchestra/testbench": "7.4.*",
+        "orchestra/testbench-browser-kit": "7.2.*",
         "doctrine/dbal": "~2.3"
     },
 
