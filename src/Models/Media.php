@@ -9,7 +9,8 @@ use EscapeWork\LaravelSteroids\Sortable;
 
 class Media extends Model
 {
-    use Presentable, Sortable;
+    use Presentable;
+    use Sortable;
 
     /**
      * Table.

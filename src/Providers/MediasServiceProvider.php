@@ -51,7 +51,8 @@ class MediasServiceProvider extends ServiceProvider
         $this->registerProviders();
 
         $this->mergeConfigFrom(
-            $root.'/config/medias.php', 'medias'
+            $root.'/config/medias.php',
+            'medias'
         );
 
         if ($this->app['config']->get('medias.glide.load')) {
