@@ -18,7 +18,7 @@
 
 ## Version Compatibility
 
- Laravel           | Laramedias
+Laravel           | Laramedias
 :------------------|:----------
  9.0.x             | 0.9.x
  5.5.x|5.6.x|5.7.x | 0.7.x
